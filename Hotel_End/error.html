@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HACKED</title>      
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div style="text-align:center; margin-bottom: 20px;">
+
+ <h1 id="h1"></h1>
+<img id="img" style="width:350px height:400px;" src="scull.gif">
+    <div style="text-align:center">
+        <h2 id="h2"  style="margin-bottom: 20px;"></h2>
+    </div>
+
+    <script>
+        function go_empty() { 
+            document.body.style.backgroundColor = "black";
+            const h1 = document.getElementById("h1");
+            const h2 = document.getElementById("h2");
+            const img = document.getElementById("img")
+            h1.innerHTML = "You are hacked, empty hardisk.";
+            h1.style.color = "grey";
+            h2.style.color = "yellow";
+
+            let timePerLetter = 40;
+            let textContainer = h2; 
+            textContainer.innerHTML = ""; // Clear previous text
+
+            function printOut(str) {
+                var i = 0;
+                (function main() {
+                    var char = str[i++];
+                    if (char === '\n') {
+                        textContainer.innerHTML += "<br><br>"; // Add  line break in HTML
+                    } else {
+                        textContainer.innerHTML += char; // Add the character to the text
+                    }
+
+                    if (i < str.length) {
+                        setTimeout(main, timePerLetter);
+                    } else {
+                    // Remove image/gif and  running text after X secund, and give ugly grey bacgkground color.
+                        setTimeout(function() {
+                            textContainer.innerHTML = ""; 
+                            h1.innerHTML = ""; 
+                            img.src = ""; 
+                            document.body.style.backgroundColor = "grey";
+                        }, 7000);  
+                    }
+                })();
+            }
+
+            const message = "The files are unpossible to recover now.\n BTW...... \n buy a few coffe to: https://github.com/v1s1t0r1sh3r3/airgeddon \n will automaticly restore you files.";
+            printOut(message);
+        }
+
+        // Call the function when the page loads
+        window.onload = go_empty;
+    </script>
+</body> 
+</html>
+
