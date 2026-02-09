@@ -1,0 +1,103 @@
+/* portal.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: white;
+}
+
+.background-image {
+    background-image: url('hotel.png');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+   /* filter: blur(4px);     */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.content {
+    background-color: rgba(0, 0, 50, 0.75); /* Semi-transparent dark blue */
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0.8;
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: 'Garamond', serif;
+}
+
+.wifi_logo {
+    width: 40px;
+    height: 40px;
+}
+
+p {
+    margin: 15px 0 5px;
+    text-align: left;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    height: 40px;
+}
+
+.show-password-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.button {
+    color: #ffffff;
+    background-color: #43a047;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    width: 50%;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/* Loading spinner for check.htm */
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid #43a047;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
