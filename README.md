@@ -1,23 +1,20 @@
 
-# Temporary_test_repo
-# Email_and_password phishing templates to replace  with the deafult content in /ag1/www/ when evil twin attack is running
-- The https_plugin is used in the images.
-- Only hackers mind limited way of use.
-  e.g  QR code was used to test "consert".
-- airgeddon https plugin templates bypass http warnings etc. Whiteout https-plugin templates still capture credentials & avoid check.php/ update.php so php files don't interrupt email_phishing files.
-- If not sure how to replace the files,Se video below to get an idé.
-  How to replace all files in ag1/www folder start at ca 13.00 minut. Other stuff and code in video is very different and only for AP password.
- The www folder must bee open as root to replace files in the ag1/www folder.
-- To test against targets like a school or whatever, just change the img + text.
-- Email validation, confirme password etc is done. Templates act legit for victims.Customice for you target.
-- Email & password typed will popup in a new .txt file at /home/kali/Desktop. PATH can bee changed in check.htm line 17.
-- Images of the 2 phishing templates shows how they look on victim phones.
+# Temporary_repo !
+# Emai & password phishing templates to replace with the deafult content in /ag1/www/ when evil twin attack is running.
+- The https_plugin is used in the images, but not needed.
+- Only hackers mind limited way of use. QR code was used to test "consert" [ image below ]
+- Whiteout https-plugin templates still capture credentials & avoid check.php & update.php as those files would interrupt the code used.
+- If not sure how to replace files in ag1/www,See video below to get an idé.
+  The method start at minute ~13.00. Other stuff in video is very different & only for AP password.
+ The ag1/www folder must bee open as root to replace the files.
+- Email validation, confirme password etc is done in portal.js so coustuming templates for other targets is a very easy task.
+- Email & password typed will popup in txt file at /home/kali/Desktop by default.
+- Images example shows how templates look for victim, when use https_plugin
 - If any question hit mee up on Dicord, or use email found at repos_overview.
 - ![Hotel Image](Screenshot_20251018-145557.png)   ![Concert Image](concert.jpeg)
 
- - Video how & where to replace all files in ag1/www folder.Se from minut 13.00:
+ - How to replace file in ag1/www by Fr4nk Solo in Spanish language.
 - https://www.youtube.com/watch?v=fbmnzlNBIE0
-  - SPINNER_Test :
-- a lightweight CSS spinner inserted in the page when et_successful is true. It displays the message and spinner for 3 seconds before the script exits.
+
 <br><br>
-<p align="center">(<a href="#top" >Go Up To Line 1</a>)</p>
+<p align="center">(<a href="#top" >Back To Top</a>)</p>
